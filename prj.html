@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<style>
+    .error{
+        color: red;
+    }
+</style>
+<body>
+    
+    <form id="form">
+        <div class="inputs">
+            <label for="name">Name</label>
+            <input type="text" name="username" id="username">
+            <div class="error"></div>
+        </div>
+        <div class="inputs">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <div class="error"></div>
+        </div>
+        <div class="inputs">
+            <label for="Password">Password</label>
+            <input type="password" name="password" id="password">
+            <div class="error"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+  <script>
+    const form = document.getElementById("form");
+    const errorMsg=document.getElementsByClassName("error");
+    const input=document.getElementsByClassName("inputs");
+
+    form.addEventListener('submit',(event) =>{
+        event.preventDefault();
+
+        formValidation()
+    } );
+
+    const formValidation = () => {
+        const name= document.getElementById("username").value.trim();
+        const email=document.getElementById("email").value.trim();
+        const password=document.getElementById("password").value.trim();
+
+        if(!name||!email||!password){
+            errorMsg.textContent="all fields are required";
+            return;
+        }
+        alert("Form created successfully");
+        form.reset();
+    };
+   
+  </script>
+</body>
+</html>
